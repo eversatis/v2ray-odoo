@@ -165,7 +165,6 @@ function setFirewall()
     if [ "$res" = "" ];then
         ufw allow http/tcp
         ufw allow https/tcp
-        ufw allow ${port}/tcp
     fi
 }
 
@@ -222,10 +221,7 @@ function info()
         exit 1
     fi
     path=`cat /etc/v2ray/config.json | grep path | cut -d: -f2 | tr -d \",' '`
-    port=`cat /etc/nginx/conf.d/${domain}.conf | grep -i ssl | head -n1 | awk '{print $2}'`
     security="auto"
-    res=`netstat -nltp | grep ${port} | grep nginx`
-    [ -z "$res" ] && ngstatus="${red}已停止${plain}" || ngstatus="${green}正在运行${plain}"
     
     echo ============================================
     echo -e " v2ray运行状态：${v2status}"
@@ -233,7 +229,8 @@ function info()
     echo ""
     echo -e "${red}v2ray配置信息：${plain}               "
     echo -e " IP(address):  ${red}${ip}${plain}"
-    echo -e " 端口(port)：${red}${port}${plain}"
+    echo -e " 端口(port)：443"
+    echo -e " V2Ray端口(v2port)：${red}${v2port}${plain}"
     echo -e " id(uuid)：${red}${uid}${plain}"
     echo -e " 额外id(alterid)： ${red}${alterid}${plain}"
     echo -e " 加密方式(security)： ${red}$security${plain}"
