@@ -230,8 +230,6 @@ function info()
     echo ============================================
     echo -e " v2ray运行状态：${v2status}"
     echo -e " v2ray配置文件：${red}/etc/v2ray/config.json${plain}"
-    echo -e " nginx运行状态：${ngstatus}"
-    echo -e " nginx配置文件：${red}/etc/nginx/conf.d/${domain}.conf${plain}"
     echo ""
     echo -e "${red}v2ray配置信息：${plain}               "
     echo -e " IP(address):  ${red}${ip}${plain}"
