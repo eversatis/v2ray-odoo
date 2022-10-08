@@ -420,7 +420,6 @@ getData() {
 }
 
     mkdir -p /etc/v2ray
-    if [[ -z ${CERT_FILE+x} ]]; then
         stopNginx
         sleep 2
         res=`netstat -ntlp| grep -E ':80 |:443 '`
@@ -468,7 +467,6 @@ getData() {
         cp ~/v2ray.pem /etc/v2ray/${DOMAIN}.pem
         cp ~/v2ray.key /etc/v2ray/${DOMAIN}.key
     fi
-}
     mkdir -p /usr/share/nginx/html;
     if [[ "$ALLOW_SPIDER" = "n" ]]; then
         echo 'User-Agent: *' > /usr/share/nginx/html/robots.txt
