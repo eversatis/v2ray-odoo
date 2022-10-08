@@ -284,6 +284,9 @@ function uninstall()
         rm -rf /usr/bin/v2ray/*
         rm -rf /var/log/v2ray/*
         rm -rf /etc/systemd/system/v2ray.service
+        rm -rf /etc/systemd/system/v2ray@.service
+        rm -rf /etc/systemd/system/v2ray.service.d
+        rm -rf /etc/systemd/system/v2ray@.service.d
     fi
 }
 
