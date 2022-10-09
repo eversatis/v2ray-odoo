@@ -1498,6 +1498,13 @@ uninstall() {
         rm -rf $SERVICE_FILE
         rm -rf /etc/v2ray
         rm -rf /usr/bin/v2ray
+	rm -rf /var/log/v2ray
+	rm -rf /tmp/v2ray
+	rm -rf /etc/systemd/system/v2ray.service
+	rm -rf /etc/systemd/system/v2ray@.service
+	rm -rf /etc/systemd/system/v2ray.service.d
+	rm -rf /etc/systemd/system/v2ray@.service.d
+	
 
         if [[ "$BT" = "false" ]]; then
             systemctl disable nginx
